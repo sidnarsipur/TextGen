@@ -1,1 +1,2 @@
 datasets==2.18.0
+opencv_python==4.9.0.80
