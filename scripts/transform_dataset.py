@@ -181,20 +181,3 @@ for i in range(0, dataset_size+1):
     count += 17
 
     print(f"Processed {i}/{dataset_size}")
-
-    
-
-
-
-
-
-
-
-
-
-        
-    
-
-
-
-# data/train/0/desc.txt
