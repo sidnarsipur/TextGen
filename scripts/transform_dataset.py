@@ -60,10 +60,7 @@ class PBR_Material:
         return resized
     
     #Only receives a 1024*1024 image and outputs 4 512*512 images
-    def crop(self):
-        if self.shape != (1024, 1024, 3):
-            raise ValueError("Input image must be 1024x1024. Image Shape is ", self.shape)
-     
+    def crop(self): 
         basecolor_topleft = self.basecolor[:512, :512]
         basecolor_topright = self.basecolor[:512, 512:]
         basecolor_bottomleft = self.basecolor[512:, :512]  
@@ -94,10 +91,14 @@ class PBR_Material:
     def save(self, path, name):
         os.makedirs(os.path.join(path, name), exist_ok=True)
         
-        cv2.imwrite(os.path.join(path, name, "basecolor.png"), self.basecolor)
-        cv2.imwrite(os.path.join(path, name, "height.png"), self.height)
-        cv2.imwrite(os.path.join(path, name, "normal.png"), self.normal)
-        cv2.imwrite(os.path.join(path, name, "roughness.png"), self.roughness)
+        if not cv2.imwrite(os.path.join(path, name, "basecolor.png"), self.basecolor):
+            raise IOError("Failed to save basecolor.png")
+        if not cv2.imwrite(os.path.join(path, name, "height.png"), self.height):
+            raise IOError("Failed to save height.png")
+        if not cv2.imwrite(os.path.join(path, name, "normal.png"), self.normal):
+            raise IOError("Failed to save normal.png")
+        if not cv2.imwrite(os.path.join(path, name, "roughness.png"), self.roughness):
+            raise IOError("Failed to save roughness.png")
 
         with open(os.path.join(path, name, "desc.json"), "w") as file:
             file.write(self.desc)
@@ -195,3 +196,5 @@ for i in range(0, dataset_size+1):
     
 
 
+
+# data/train/0/desc.txt
