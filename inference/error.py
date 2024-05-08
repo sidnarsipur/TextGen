@@ -1,4 +1,4 @@
-### Compare errors between ground truth normal and roughness maps and inference maps
+### Compare errors between ground truth normal, roughness maps and inference maps
 import numpy as np
 from PIL import Image
 
