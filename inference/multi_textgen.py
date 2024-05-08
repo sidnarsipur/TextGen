@@ -45,7 +45,7 @@ for i in range (89):
     generator = torch.manual_seed(args.seed)
     
     image = pipe(
-        prompt, num_inference_steps=50, generator=generator, image=control_image, height=512, width=512,
+        prompt, num_inference_steps=25, generator=generator, image=control_image, height=512, width=512,
     ).images[0]
     os.makedirs(f"data/controlnet-inference/{i}", exist_ok=True)
     # if basecolor.png doesn't exist, create it
