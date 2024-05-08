@@ -1,4 +1,4 @@
-                                                                    #!/bin/bash
+#!/bin/bash
 #SBATCH --job-name=Normal
 #SBATCH --error=logs/error.txt
 #SBATCH --output=logs/error.txt
